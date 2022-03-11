@@ -1,7 +1,6 @@
 let posts = [];
 
 const likedPostsId = [];
-console.log(likedPostsId);
 const reportedPostsId = [];
 
 const getLikedPosts = () => {
@@ -18,14 +17,12 @@ const isLiked = (id) => {
 
 const addToLiked = (id) => {
   likedPostsId.push(id);
-  console.log(likedPostsId);
   showPosts(posts);
 };
 
 const reportPost = (id) => {
   reportedPostsId.push(id);
   const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
-  console.log(remainingPosts);
   showPosts(remainingPosts);
 };
 
@@ -175,7 +172,6 @@ const displayReportedPosts = () => {
 const loadPosts = async () => {
   let data = await fetch('../data/posts.json');
   posts = await data.json();
-  console.log(posts);
   showPosts(posts);
 }
 
